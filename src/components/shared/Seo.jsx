@@ -1,7 +1,19 @@
+import PropTypes from "prop-types";
 import React from "react";
+import Helmet from "react-helmet";
 
-const SEO = () => {
-	return <div>SEO</div>;
+const Seo = ({ title }) => {
+	const titleText = title ? `${title} · Apollo Instagram` : "Apollo Instagram";
+
+	return (
+		<Helmet>
+			<title>{titleText}</title>
+		</Helmet>
+	);
 };
 
-export default SEO;
+Seo.propTypes = {
+	title: PropTypes.string,
+};
+
+export default Seo;
