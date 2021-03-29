@@ -1,5 +1,5 @@
-import React from 'react';
-import {useMorePostsFromUserStyles} from '../../styles.js';
+import React from "react";
+import { useMorePostsFromUserStyles } from "../../styles.js";
 
 const MorePostsFromUser = () => {
 	useMorePostsFromUserStyles();

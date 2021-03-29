@@ -1,5 +1,5 @@
-import React from 'react';
-import {useNavbarStyles} from '../../styles.js';
+import React from "react";
+import { useNavbarStyles } from "../../styles.js";
 
 const Navbar = () => {
 	useNavbarStyles();

@@ -1,5 +1,5 @@
-import React from 'react';
-import {useGridPostStyles} from '../../styles.js';
+import React from "react";
+import { useGridPostStyles } from "../../styles.js";
 
 const GridPost = () => {
 	useGridPostStyles();

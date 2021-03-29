@@ -1,5 +1,5 @@
-import React from 'react';
-import {useUserCardStyles} from '../../styles.js';
+import React from "react";
+import { useUserCardStyles } from "../../styles.js";
 
 const UserCard = () => {
 	useUserCardStyles();

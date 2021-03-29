@@ -1,5 +1,5 @@
-import React from 'react';
-import {useOptionsDialogStyles} from '../../styles.js';
+import React from "react";
+import { useOptionsDialogStyles } from "../../styles.js";
 
 const OptionsDialog = () => {
 	useOptionsDialogStyles();

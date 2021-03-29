@@ -1,5 +1,5 @@
-import React from 'react';
-import {useExploreSuggestionsStyles} from '../../styles.js';
+import React from "react";
+import { useExploreSuggestionsStyles } from "../../styles.js";
 
 const ExploreSuggestions = () => {
 	useExploreSuggestionsStyles();

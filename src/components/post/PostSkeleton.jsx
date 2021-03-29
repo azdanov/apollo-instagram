@@ -1,7 +1,7 @@
-import React from 'react';
-import {usePostSkeletonStyles} from '../../styles.js';
+import React from "react";
+import { usePostSkeletonStyles } from "../../styles.js";
 
-export var PostSkeleton = () => {
+export const PostSkeleton = () => {
 	usePostSkeletonStyles();
 
 	return <div>PostSkeleton</div>;

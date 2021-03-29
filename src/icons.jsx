@@ -1,5 +1,5 @@
-import React from 'react';
-import {makeStyles} from '@material-ui/core';
+import { makeStyles } from "@material-ui/core";
+import React from "react";
 
 export const LogoLoadingIcon = (props) => (
 	<svg
@@ -7,10 +7,10 @@ export const LogoLoadingIcon = (props) => (
 		height={50}
 		viewBox="0 0 50 50"
 		style={{
-			position: 'absolute',
-			top: '50%',
-			left: '50%',
-			margin: '-25px 0 0 -25px',
+			position: "absolute",
+			top: "50%",
+			left: "50%",
+			margin: "-25px 0 0 -25px",
 		}}
 		fill="#c7c7c7"
 		{...props}
@@ -137,21 +137,21 @@ const useLoadingLargeStyles = makeStyles({
 	container: {
 		height: 50,
 		width: 32,
-		margin: '0 auto',
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'center',
-		flexDirection: 'column',
+		margin: "0 auto",
+		display: "flex",
+		alignItems: "center",
+		justifyContent: "center",
+		flexDirection: "column",
 	},
 	loading: {
-		animation: '$spinner-spin12 1.2s steps(12) infinite',
+		animation: "$spinner-spin12 1.2s steps(12) infinite",
 	},
-	'@keyframes spinner-spin12': {
-		'0%': {
-			transform: 'rotate(0deg)',
+	"@keyframes spinner-spin12": {
+		"0%": {
+			transform: "rotate(0deg)",
 		},
 		to: {
-			transform: 'rotate(360deg)',
+			transform: "rotate(360deg)",
 		},
 	},
 });
@@ -303,22 +303,22 @@ const useLoadingStyles = makeStyles({
 	container: {
 		height: 18,
 		width: 18,
-		margin: '0 auto',
+		margin: "0 auto",
 	},
 	loadingSvg: {
-		animation: '$IGCoreSpinnerSpin8 .8s steps(8) infinite',
+		animation: "$IGCoreSpinnerSpin8 .8s steps(8) infinite",
 	},
-	'@keyframes IGCoreSpinnerSpin8': {
-		'0%': {
-			transform: 'rotate(180deg)',
+	"@keyframes IGCoreSpinnerSpin8": {
+		"0%": {
+			transform: "rotate(180deg)",
 		},
 		to: {
-			transform: 'rotate(540deg)',
+			transform: "rotate(540deg)",
 		},
 	},
 });
 
-export const LoadingIcon = (props) => {
+export const LoadingIcon = () => {
 	const classes = useLoadingStyles();
 
 	return (

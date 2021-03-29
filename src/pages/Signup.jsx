@@ -1,5 +1,5 @@
-import React from 'react';
-import {useSignUpPageStyles} from '../styles.js';
+import React from "react";
+import { useSignUpPageStyles } from "../styles.js";
 
 const SignUpPage = () => {
 	useSignUpPageStyles();

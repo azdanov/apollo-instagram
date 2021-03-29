@@ -1,5 +1,5 @@
-import React from 'react';
-import {useLayoutStyles} from '../../styles.js';
+import React from "react";
+import { useLayoutStyles } from "../../styles.js";
 
 const Layout = () => {
 	useLayoutStyles();

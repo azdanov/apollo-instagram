@@ -1,5 +1,5 @@
-import React from 'react';
-import {useLoadingScreenStyles} from '../../styles.js';
+import React from "react";
+import { useLoadingScreenStyles } from "../../styles.js";
 
 const LoadingScreen = () => {
 	useLoadingScreenStyles();

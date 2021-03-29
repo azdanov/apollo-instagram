@@ -1,5 +1,5 @@
-import React from 'react';
-import {useFeedPageStyles} from '../styles.js';
+import React from "react";
+import { useFeedPageStyles } from "../styles.js";
 
 const FeedPage = () => {
 	useFeedPageStyles();

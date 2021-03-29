@@ -1,5 +1,5 @@
-import React from 'react';
-import {useEditProfilePageStyles} from '../styles.js';
+import React from "react";
+import { useEditProfilePageStyles } from "../styles.js";
 
 const EditProfilePage = () => {
 	useEditProfilePageStyles();

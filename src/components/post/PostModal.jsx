@@ -1,5 +1,5 @@
-import React from 'react';
-import {usePostModalStyles} from '../../styles.js';
+import React from "react";
+import { usePostModalStyles } from "../../styles.js";
 
 const PostModal = () => {
 	usePostModalStyles();

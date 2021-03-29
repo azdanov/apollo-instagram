@@ -1,5 +1,5 @@
-import React from 'react';
-import {useProfileTabsStyles} from '../../styles.js';
+import React from "react";
+import { useProfileTabsStyles } from "../../styles.js";
 
 const ProfileTabs = () => {
 	useProfileTabsStyles();

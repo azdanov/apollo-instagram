@@ -1,5 +1,5 @@
-import React from 'react';
-import {useFeedPostStyles} from '../../styles.js';
+import React from "react";
+import { useFeedPostStyles } from "../../styles.js";
 
 const FeedPost = () => {
 	useFeedPostStyles();
