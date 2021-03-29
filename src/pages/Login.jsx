@@ -24,15 +24,16 @@ const LoginPage = () => {
 								label="Username"
 								margin="dense"
 								className={classes.textField}
-								autocomplete="username"
+								autoComplete="username"
 							/>
 							<TextField
 								fullWidth
 								variant="filled"
 								label="Password"
+								type="password"
 								margin="dense"
 								className={classes.textField}
-								autocomplete="current-password"
+								autoComplete="current-password"
 							/>
 							<Button
 								fullWidth
@@ -74,12 +75,12 @@ const LoginPage = () => {
 	);
 };
 
-export const LoginWithFacebook = ({ color, iconColor }) => {
+export const LoginWithFacebook = ({ color, iconColor, variant }) => {
 	const classes = useLoginPageStyles();
 	const facebookIcon = iconColor === "blue" ? FacebookIconBlue : FacebookIconWhite;
 
 	return (
-		<Button fullWidth color={color}>
+		<Button fullWidth color={color} variant={variant}>
 			<img src={facebookIcon} alt="Facebook" className={classes.facebookIcon} />
 			Log In With Facebook
 		</Button>
@@ -89,6 +90,7 @@ export const LoginWithFacebook = ({ color, iconColor }) => {
 LoginWithFacebook.propTypes = {
 	color: PropTypes.string.isRequired,
 	iconColor: PropTypes.string.isRequired,
+	variant: PropTypes.string,
 };
 
 export default LoginPage;
