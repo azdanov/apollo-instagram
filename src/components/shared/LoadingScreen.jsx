@@ -1,10 +1,17 @@
 import React from "react";
+import { LogoLoadingIcon } from "../../icons.jsx";
 import { useLoadingScreenStyles } from "../../styles.js";
 
 const LoadingScreen = () => {
-	useLoadingScreenStyles();
+	const classes = useLoadingScreenStyles();
 
-	return <div>LoadingScreen</div>;
+	return (
+		<section className={classes.section}>
+			<span>
+				<LogoLoadingIcon />
+			</span>
+		</section>
+	);
 };
 
 export default LoadingScreen;

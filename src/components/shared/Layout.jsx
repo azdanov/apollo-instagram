@@ -22,8 +22,8 @@ const Layout = ({ children, title, marginTop = 60 }) => {
 
 Layout.propTypes = {
 	children: PropTypes.node.isRequired,
-	title: PropTypes.string.isRequired,
-	marginTop: PropTypes.number.isRequired,
+	title: PropTypes.string,
+	marginTop: PropTypes.number,
 };
 
 export default Layout;
