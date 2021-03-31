@@ -5,7 +5,7 @@ import Layout from "../components/shared/Layout.jsx";
 
 const NotFoundPage = () => {
 	return (
-		<Layout title="Page Not Found" marginTop={120}>
+		<Layout isNavbarMinimal title="Page Not Found" marginTop={120}>
 			<Typography paragraph variant="h5" align="center">
 				Sorry, this page isn&apos;t available
 			</Typography>
