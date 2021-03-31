@@ -6,6 +6,7 @@ import {
 	Hidden,
 	InputBase,
 	Typography,
+	Zoom,
 } from "@material-ui/core";
 import PropTypes from "prop-types";
 import React from "react";
@@ -22,7 +23,8 @@ import {
 	LoadingIcon,
 } from "../../icons.jsx";
 import logo from "../../images/logo.png";
-import { useNavbarStyles, WhiteTooltip } from "../../styles.js";
+import { RedTooltip, useNavbarStyles, WhiteTooltip } from "../../styles.js";
+import NotificationTooltip from "../notification/NotificationTooltip.jsx";
 
 const Navbar = ({ isNavbarMinimal }) => {
 	const classes = useNavbarStyles();
@@ -141,9 +143,23 @@ const Search = () => {
 const Links = ({ path }) => {
 	const classes = useNavbarStyles();
 	const [showList, setShowList] = React.useState(false);
+	const [showTooltip, setShowTooltip] = React.useState(true);
+
+	React.useEffect(() => {
+		const timeout = setTimeout(() => {
+			handleHideTooltip();
+		}, 5000);
+		return () => {
+			clearTimeout(timeout);
+		};
+	}, []);
 
 	const handleToggleList = () => {
 		setShowList((previousShowList) => !previousShowList);
+	};
+
+	const handleHideTooltip = () => {
+		setShowTooltip(false);
 	};
 
 	return (
@@ -156,9 +172,17 @@ const Links = ({ path }) => {
 				<Link to="/explore">
 					{path === "/explore" ? <ExploreActiveIcon /> : <ExploreIcon />}
 				</Link>
-				<div className={classes.notifications} onClick={handleToggleList}>
-					{showList ? <LikeActiveIcon /> : <LikeIcon />}
-				</div>
+				<RedTooltip
+					arrow
+					open={showTooltip}
+					TransitionComponent={Zoom}
+					title={<NotificationTooltip />}
+					onOpen={handleHideTooltip}
+				>
+					<div className={classes.notifications} onClick={handleToggleList}>
+						{showList ? <LikeActiveIcon /> : <LikeIcon />}
+					</div>
+				</RedTooltip>
 				<Link to={`/${defaultCurrentUser.username}`}>
 					<div
 						className={
