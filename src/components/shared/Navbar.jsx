@@ -8,6 +8,7 @@ import {
 	Typography,
 	Zoom,
 } from "@material-ui/core";
+import { useNProgress } from "@tanem/react-nprogress";
 import PropTypes from "prop-types";
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
@@ -30,26 +31,63 @@ import NotificationTooltip from "../notification/NotificationTooltip.jsx";
 const Navbar = ({ isNavbarMinimal }) => {
 	const classes = useNavbarStyles();
 	const history = useHistory();
+	const [isLoading, setIsLoading] = React.useState(true);
 
 	const path = history.location.pathname;
 
+	React.useEffect(() => {
+		setIsLoading(false);
+	}, [path]);
+
 	return (
-		<AppBar className={classes.appBar}>
-			<section className={classes.section}>
-				<Logo />
-				{!isNavbarMinimal && (
-					<>
-						<Search />
-						<Links path={path} />
-					</>
-				)}
-			</section>
-		</AppBar>
+		<>
+			<Progress isAnimating={isLoading} />
+			<AppBar className={classes.appBar}>
+				<section className={classes.section}>
+					<Logo />
+					{!isNavbarMinimal && (
+						<>
+							<Search />
+							<Links path={path} />
+						</>
+					)}
+				</section>
+			</AppBar>
+		</>
 	);
 };
 
 Navbar.propTypes = {
 	isNavbarMinimal: PropTypes.bool,
+};
+
+const Progress = ({ isAnimating }) => {
+	const classes = useNavbarStyles();
+	const { animationDuration, isFinished, progress } = useNProgress({ isAnimating });
+
+	return (
+		<div
+			className={classes.progressContainer}
+			style={{
+				opacity: isFinished ? 0 : 1,
+				transition: `opacity ${animationDuration}ms linear`,
+			}}
+		>
+			<div
+				className={classes.progressBar}
+				style={{
+					marginLeft: `${(-1 + progress) * 100}%`,
+					transition: `margin-left ${animationDuration}ms linear`,
+				}}
+			>
+				<div className={classes.progressBackground} />
+			</div>
+		</div>
+	);
+};
+
+Progress.propTypes = {
+	isAnimating: PropTypes.bool.isRequired,
 };
 
 const Logo = () => {
