@@ -24,6 +24,7 @@ import {
 } from "../../icons.jsx";
 import logo from "../../images/logo.png";
 import { RedTooltip, useNavbarStyles, WhiteTooltip } from "../../styles.js";
+import NotificationList from "../notification/NotificationList.jsx";
 import NotificationTooltip from "../notification/NotificationTooltip.jsx";
 
 const Navbar = ({ isNavbarMinimal }) => {
@@ -162,8 +163,13 @@ const Links = ({ path }) => {
 		setShowTooltip(false);
 	};
 
+	const handleHideList = () => {
+		setShowList(false);
+	};
+
 	return (
 		<div className={classes.linksContainer}>
+			{showList && <NotificationList handleHideList={handleHideList} />}
 			<div className={classes.linksWrapper}>
 				<Hidden xsDown>
 					<AddIcon />
