@@ -14,90 +14,106 @@ import {
 	UnlikeIcon,
 } from "../../icons.jsx";
 import { useFeedPostStyles } from "../../styles.js";
+import FollowSuggestions from "../shared/FollowSuggestions.jsx";
 import UserCard from "../shared/UserCard.jsx";
 
-const FeedPost = ({ post }) => {
+const FeedPost = ({ index, post }) => {
 	const classes = useFeedPostStyles();
 	const [showCaption, setShowCaption] = React.useState(false);
 
+	const showFollowSuggestions = index === 1;
+
 	return (
-		<article className={classes.article}>
-			<div className={classes.postHeader}>
-				<UserCard user={post.user} />
-				<MoreIcon className={classes.moreIcon} />
-			</div>
-			<div>
-				<img src={post.media} alt="Post media" className={classes.image} />
-			</div>
-			<div className={classes.postButtonsWrapper}>
-				<div className={classes.postButtons}>
-					<LikeButton />
-					<Link to={`/p/${post.id}`}>
-						<CommentIcon />
-					</Link>
-					<ShareIcon />
-					<SaveButton />
+		<>
+			<article
+				className={classes.article}
+				style={{ marginBottom: showFollowSuggestions && 30 }}
+			>
+				<div className={classes.postHeader}>
+					<UserCard user={post.user} />
+					<MoreIcon className={classes.moreIcon} />
 				</div>
-				<Typography className={classes.likes} variant="subtitle2">
-					<span>{post.likes === 1 ? "1 like" : `${post.likes} likes`}</span>
-				</Typography>
-				<div className={showCaption ? classes.expanded : classes.collapsed}>
-					<Link to={`/${post.user.username}`}>
-						<Typography variant="subtitle2" component="span" className={classes.username}>
-							{post.user.username}
-						</Typography>
-					</Link>
-					{showCaption ? (
-						<Typography
-							variant="body2"
-							component="span"
-							dangerouslySetInnerHTML={{ __html: post.caption }}
-						/>
-					) : (
-						<div className={classes.captionWrapper}>
-							<HtmlEllipsis
-								unsafeHTML={post.caption}
-								className={classes.caption}
-								maxLine={0}
-								ellipsis="..."
-								basedOn="letters"
-							/>
-							<Button className={classes.moreButton} onClick={() => setShowCaption(true)}>
-								more
-							</Button>
-						</div>
-					)}
+				<div>
+					<img src={post.media} alt="Post media" className={classes.image} />
 				</div>
-				<Link to={`/p/${post.id}`}>
-					<Typography className={classes.commentsLink} variant="body2" component="div">
-						View all {post.comments.length} comments
+				<div className={classes.postButtonsWrapper}>
+					<div className={classes.postButtons}>
+						<LikeButton />
+						<Link to={`/p/${post.id}`}>
+							<CommentIcon />
+						</Link>
+						<ShareIcon />
+						<SaveButton />
+					</div>
+					<Typography className={classes.likes} variant="subtitle2">
+						<span>{post.likes === 1 ? "1 like" : `${post.likes} likes`}</span>
 					</Typography>
-				</Link>
-				{post.comments.map((comment) => (
-					<div key={comment.id}>
-						<Link to={`/${comment.user.username}`}>
+					<div className={showCaption ? classes.expanded : classes.collapsed}>
+						<Link to={`/${post.user.username}`}>
 							<Typography
 								variant="subtitle2"
 								component="span"
-								className={classes.commentUsername}
+								className={classes.username}
 							>
-								{comment.user.username}
-							</Typography>{" "}
-							<Typography variant="body2" component="span">
-								{comment.content}
+								{post.user.username}
 							</Typography>
 						</Link>
+						{showCaption ? (
+							<Typography
+								variant="body2"
+								component="span"
+								dangerouslySetInnerHTML={{ __html: post.caption }}
+							/>
+						) : (
+							<div className={classes.captionWrapper}>
+								<HtmlEllipsis
+									unsafeHTML={post.caption}
+									className={classes.caption}
+									maxLine={0}
+									ellipsis="..."
+									basedOn="letters"
+								/>
+								<Button
+									className={classes.moreButton}
+									onClick={() => setShowCaption(true)}
+								>
+									more
+								</Button>
+							</div>
+						)}
 					</div>
-				))}
-				<Typography color="secondary" className={classes.datePosted}>
-					{formatDistanceToNow(parseISO(post.created_at), { addSuffix: true })}
-				</Typography>
-			</div>
-			<Hidden xsDown>
-				<Divider />
-				<Comment />
-			</Hidden>
-		</article>
+					<Link to={`/p/${post.id}`}>
+						<Typography className={classes.commentsLink} variant="body2" component="div">
+							View all {post.comments.length} comments
+						</Typography>
+					</Link>
+					{post.comments.map((comment) => (
+						<div key={comment.id}>
+							<Link to={`/${comment.user.username}`}>
+								<Typography
+									variant="subtitle2"
+									component="span"
+									className={classes.commentUsername}
+								>
+									{comment.user.username}
+								</Typography>{" "}
+								<Typography variant="body2" component="span">
+									{comment.content}
+								</Typography>
+							</Link>
+						</div>
+					))}
+					<Typography color="secondary" className={classes.datePosted}>
+						{formatDistanceToNow(parseISO(post.created_at), { addSuffix: true })}
+					</Typography>
+				</div>
+				<Hidden xsDown>
+					<Divider />
+					<Comment />
+				</Hidden>
+			</article>
+			{showFollowSuggestions && <FollowSuggestions />}
+		</>
 	);
 };
 
@@ -174,6 +190,7 @@ const Comment = () => {
 };
 
 FeedPost.propTypes = {
+	index: PropTypes.number.isRequired,
 	post: PropTypes.shape({
 		id: PropTypes.string.isRequired,
 		likes: PropTypes.number.isRequired,
