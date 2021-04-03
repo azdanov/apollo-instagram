@@ -2,7 +2,7 @@ import { makeStyles, Tooltip, withStyles } from "@material-ui/core";
 import IconSheet2 from "./images/icon-sheet-2.png";
 import IconSheet from "./images/icon-sheet.png";
 
-/* Feed page: /pages/Feed.jsx */
+/* Feed page: /pages/FeedPage.jsx */
 export const useFeedPageStyles = makeStyles((theme) => ({
 	container: {
 		display: "grid",
@@ -66,7 +66,7 @@ export const useExploreGridStyles = makeStyles((theme) => ({
 	},
 }));
 
-/* Login page: /pages/Login.jsx */
+/* Login page: /pages/LoginPage.jsx */
 export const useLoginPageStyles = makeStyles({
 	signUpCard: {
 		maxWidth: 348,
@@ -122,7 +122,7 @@ export const useLoginPageStyles = makeStyles({
 	},
 });
 
-// SignUp page: /pages/Signup.jsx
+// SignUp page: /pages/SignupPage.jsx
 export const useSignUpPageStyles = makeStyles({
 	card: { maxWidth: 348, padding: "16px 40px", marginBottom: 10 },
 	section: {
@@ -974,7 +974,7 @@ export const useProfilePictureStyles = makeStyles({
 	},
 });
 
-// EditProfilePage: /pages/EditProfile.jsx
+// EditProfilePage: /pages/EditProfilePage.jsx
 const sectionItem = {
 	display: "grid",
 	gridAutoFlow: "column",
@@ -1286,7 +1286,7 @@ export const useNotificationListStyles = makeStyles((theme) => ({
 	},
 }));
 
-// Profile page: /pages/Profile.jsx
+// Profile page: /pages/ProfilePage.jsx
 export const useProfilePageStyles = makeStyles((theme) => {
 	const followingSectionLarge = {
 		display: "grid",

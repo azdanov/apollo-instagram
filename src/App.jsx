@@ -1,18 +1,32 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import EditProfilePage from "./pages/EditProfile.jsx";
-import ExplorePage from "./pages/Explore.jsx";
-import FeedPage from "./pages/Feed.jsx";
-import LoginPage from "./pages/Login.jsx";
-import NotFoundPage from "./pages/NotFound.jsx";
-import PostPage from "./pages/Post.jsx";
-import ProfilePage from "./pages/Profile.jsx";
-import SignUpPage from "./pages/Signup.jsx";
+import { Route, Switch, useHistory, useLocation } from "react-router-dom";
+import PostModal from "./components/post/PostModal.jsx";
+import EditProfilePage from "./pages/EditProfilePage.jsx";
+import ExplorePage from "./pages/ExplorePage.jsx";
+import FeedPage from "./pages/FeedPage.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
+import NotFoundPage from "./pages/NotFoundPage.jsx";
+import PostPage from "./pages/PostPage.jsx";
+import ProfilePage from "./pages/ProfilePage.jsx";
+import SignUpPage from "./pages/SignupPage.jsx";
 
 const App = () => {
+	const history = useHistory();
+	const location = useLocation();
+	const previousLocation = React.useRef(location);
+	const modal = location.state?.modal;
+
+	React.useEffect(() => {
+		if (history.action !== "POP" && !modal) {
+			previousLocation.current = location;
+		}
+	}, [history.action, location, modal]);
+
+	const isModalOpen = modal && previousLocation.current !== location;
+
 	return (
-		<Router>
-			<Switch>
+		<>
+			<Switch location={isModalOpen ? previousLocation.current : location}>
 				<Route exact path="/" component={FeedPage} />
 				<Route path="/explore" component={ExplorePage} />
 				<Route exact path="/:username" component={ProfilePage} />
@@ -22,7 +36,8 @@ const App = () => {
 				<Route path="/accounts/emailsignup" component={SignUpPage} />
 				<Route path="*" component={NotFoundPage} />
 			</Switch>
-		</Router>
+			{isModalOpen && <Route exact path="/p/:postId" component={PostModal} />}
+		</>
 	);
 };
 

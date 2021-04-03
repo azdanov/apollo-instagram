@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Seo from "../components/shared/Seo.jsx";
 import { useSignUpPageStyles } from "../styles.js";
-import { LoginWithFacebook } from "./Login.jsx";
+import { LoginWithFacebook } from "./LoginPage.jsx";
 
 const SignUpPage = () => {
 	const classes = useSignUpPageStyles();

@@ -10,13 +10,16 @@ const ExploreGrid = () => {
 	const loading = false;
 
 	return (
-		<Typography
-			gutterBottom
-			color="textSecondary"
-			variant="subtitle2"
-			component="h2"
-			className={classes.typography}
-		>
+		<>
+			<Typography
+				gutterBottom
+				color="textSecondary"
+				variant="subtitle2"
+				component="h2"
+				className={classes.typography}
+			>
+				Explore
+			</Typography>
 			{loading ? (
 				<LoadingLargeIcon />
 			) : (
@@ -28,7 +31,7 @@ const ExploreGrid = () => {
 					</div>
 				</article>
 			)}
-		</Typography>
+		</>
 	);
 };
 

@@ -1,13 +1,22 @@
 import { Typography } from "@material-ui/core";
 import PropTypes from "prop-types";
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { useGridPostStyles } from "../../styles.js";
 
 const GridPost = ({ post }) => {
+	const history = useHistory();
 	const classes = useGridPostStyles();
 
+	const handleOpenPostModal = () => {
+		history.push({
+			pathname: `/p/${post.id}`,
+			state: { modal: true },
+		});
+	};
+
 	return (
-		<div className={classes.gridPostContainer}>
+		<div className={classes.gridPostContainer} onClick={handleOpenPostModal}>
 			<div className={classes.gridPostOverlay}>
 				<div className={classes.gridPostInfo}>
 					<span className={classes.likes} />
@@ -25,6 +34,7 @@ const GridPost = ({ post }) => {
 
 GridPost.propTypes = {
 	post: PropTypes.shape({
+		id: PropTypes.string.isRequired,
 		likes: PropTypes.number.isRequired,
 		media: PropTypes.string.isRequired,
 		comments: PropTypes.array.isRequired,
