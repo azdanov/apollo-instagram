@@ -15,10 +15,12 @@ import {
 } from "../../icons.jsx";
 import { useFeedPostStyles } from "../../styles.js";
 import FollowSuggestions from "../shared/FollowSuggestions.jsx";
+import OptionsDialog from "../shared/OptionsDialog.jsx";
 import UserCard from "../shared/UserCard.jsx";
 
 const FeedPost = ({ index, post }) => {
 	const classes = useFeedPostStyles();
+	const [showOptionsDialog, setShowOptionsDialog] = React.useState(false);
 	const [showCaption, setShowCaption] = React.useState(false);
 
 	const showFollowSuggestions = index === 1;
@@ -31,7 +33,10 @@ const FeedPost = ({ index, post }) => {
 			>
 				<div className={classes.postHeader}>
 					<UserCard user={post.user} />
-					<MoreIcon className={classes.moreIcon} />
+					<MoreIcon
+						className={classes.moreIcon}
+						onClick={() => setShowOptionsDialog(true)}
+					/>
 				</div>
 				<div>
 					<img src={post.media} alt="Post media" className={classes.image} />
@@ -113,6 +118,7 @@ const FeedPost = ({ index, post }) => {
 				</Hidden>
 			</article>
 			{showFollowSuggestions && <FollowSuggestions />}
+			{showOptionsDialog && <OptionsDialog onClose={() => setShowOptionsDialog(false)} />}
 		</>
 	);
 };
