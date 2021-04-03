@@ -10,20 +10,22 @@ import "slick-carousel/slick/slick-theme.css";
 import PropTypes from "prop-types";
 import FollowButton from "./FollowButton.jsx";
 
-const FollowSuggestions = () => {
+const FollowSuggestions = ({ hasHiddenHeader = false }) => {
 	const classes = useFollowSuggestionsStyles();
 
 	const loading = false;
 
 	return (
 		<div className={classes.container}>
-			<Typography
-				color="textSecondary"
-				variant="subtitle2"
-				className={classes.typography}
-			>
-				Suggestions For You
-			</Typography>
+			{!hasHiddenHeader && (
+				<Typography
+					color="textSecondary"
+					variant="subtitle2"
+					className={classes.typography}
+				>
+					Suggestions For You
+				</Typography>
+			)}
 			{loading ? (
 				<LoadingLargeIcon />
 			) : (
@@ -46,6 +48,10 @@ const FollowSuggestions = () => {
 			)}
 		</div>
 	);
+};
+
+FollowSuggestions.propTypes = {
+	hasHiddenHeader: PropTypes.bool,
 };
 
 const FollowSuggestionsItem = ({ user }) => {
