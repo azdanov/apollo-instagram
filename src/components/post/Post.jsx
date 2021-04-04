@@ -16,11 +16,27 @@ import {
 import OptionsDialog from "../shared/OptionsDialog.jsx";
 import UserCard from "../shared/UserCard.jsx";
 import { usePostStyles } from "../../styles.js";
+import PostSkeleton from "./PostSkeleton.jsx";
 
 const Post = ({ id }) => {
 	const post = defaultPost;
 	const classes = usePostStyles();
 	const [showOptionsDialog, setShowOptionsDialog] = React.useState(false);
+	const [loading, setLoading] = React.useState(true);
+
+	React.useEffect(() => {
+		const timeout = setTimeout(() => {
+			setLoading(false);
+		}, 200);
+
+		return () => {
+			clearTimeout(timeout);
+		};
+	}, []);
+
+	if (loading) {
+		return <PostSkeleton />;
+	}
 
 	return (
 		<div className={classes.postContainer}>
