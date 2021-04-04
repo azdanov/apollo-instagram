@@ -126,17 +126,18 @@ const FeedPost = ({ index, post }) => {
 const LikeButton = () => {
 	const classes = useFeedPostStyles();
 	const [liked, setLiked] = React.useState(false);
+
+	const handleUnlike = () => {
+		setLiked(false);
+	};
+
+	const handleLike = () => {
+		setLiked(true);
+	};
+
 	const Icon = liked ? UnlikeIcon : LikeIcon;
 	const className = liked ? classes.liked : classes.like;
 	const onClick = liked ? handleUnlike : handleLike;
-
-	function handleUnlike() {
-		setLiked(false);
-	}
-
-	function handleLike() {
-		setLiked(true);
-	}
 
 	return <Icon className={className} onClick={onClick} />;
 };
@@ -144,16 +145,17 @@ const LikeButton = () => {
 const SaveButton = () => {
 	const classes = useFeedPostStyles();
 	const [saved, setSaved] = React.useState(false);
+
+	const handleRemove = () => {
+		setSaved(false);
+	};
+
+	const handleSave = () => {
+		setSaved(true);
+	};
+
 	const Icon = saved ? RemoveIcon : SaveIcon;
 	const onClick = saved ? handleRemove : handleSave;
-
-	function handleRemove() {
-		setSaved(false);
-	}
-
-	function handleSave() {
-		setSaved(true);
-	}
 
 	return <Icon className={classes.saveIcon} onClick={onClick} />;
 };
@@ -162,9 +164,9 @@ const Comment = () => {
 	const classes = useFeedPostStyles();
 	const [content, setContent] = React.useState("");
 
-	function handleChange(event) {
+	const handleChange = (event) => {
 		setContent(event.target.value);
-	}
+	};
 
 	return (
 		<div className={classes.commentContainer}>
