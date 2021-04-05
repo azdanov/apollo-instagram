@@ -13,7 +13,7 @@ const NotFoundPage = () => {
 				The link you followed may be broken, or the page may have been removed.{" "}
 				<Link to="/">
 					<Typography color="primary" component="span">
-						Go back to Apollo Instagram
+						Go back to Instagram
 					</Typography>
 				</Link>
 			</Typography>

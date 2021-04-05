@@ -3,7 +3,7 @@ import React from "react";
 import Helmet from "react-helmet";
 
 const Seo = ({ title }) => {
-	const titleText = title ? `${title} · Apollo Instagram` : "Apollo Instagram";
+	const titleText = title ? `${title} · Instagram` : "Instagram";
 
 	return (
 		<Helmet>

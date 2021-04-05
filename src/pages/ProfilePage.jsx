@@ -286,7 +286,7 @@ const OptionsMenu = ({ handleCloseOptionsMenu }) => {
 				<DialogTitle className={classes.dialogTitle}>
 					Logging Out
 					<Typography color="textSecondary">
-						You need to log back in to continue using Apollo Instagram.
+						You need to log back in to continue using Instagram.
 					</Typography>
 				</DialogTitle>
 			) : (

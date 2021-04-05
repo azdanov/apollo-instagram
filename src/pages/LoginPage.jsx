@@ -17,7 +17,7 @@ const LoginPage = () => {
 				<article>
 					<Card className={classes.card}>
 						<CardHeader className={classes.cardHeader} />
-						<form action="">
+						<form>
 							<TextField
 								fullWidth
 								variant="filled"

@@ -97,7 +97,7 @@ const Logo = () => {
 		<div className={classes.logoContainer}>
 			<Link to="/">
 				<div className={classes.logoWrapper}>
-					<img src={logo} alt="Apollo Instagram" className={classes.logo} />
+					<img src={logo} alt="Instagram" className={classes.logo} />
 				</div>
 			</Link>
 		</div>

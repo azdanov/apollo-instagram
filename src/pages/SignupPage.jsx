@@ -28,7 +28,7 @@ const SignUpPage = () => {
 							</div>
 							<div className={classes.orLine} />
 						</div>
-						<form action="">
+						<form>
 							<TextField
 								fullWidth
 								variant="filled"
