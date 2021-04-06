@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 const ProfilePicture = ({
 	size,
-	image = "https://instagram.com/static/images/anonymousUser.jpg/23e7b3b2a737.jpg",
+	image = "https://i.pravatar.cc/300",
 	isOwner = false,
 }) => {
 	const classes = useProfilePictureStyles({ size, isOwner });

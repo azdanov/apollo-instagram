@@ -4,7 +4,7 @@ export const defaultUser = {
 	id: uuid(),
 	username: "username",
 	name: "name",
-	profile_image: "https://instagram.com/static/images/anonymousUser.jpg/23e7b3b2a737.jpg",
+	profile_image: "https://i.pravatar.cc/300",
 };
 
 export function getDefaultUser() {
@@ -12,8 +12,7 @@ export function getDefaultUser() {
 		id: uuid(),
 		username: "username",
 		name: "name",
-		profile_image:
-			"https://instagram.com/static/images/anonymousUser.jpg/23e7b3b2a737.jpg",
+		profile_image: "https://i.pravatar.cc/300",
 	};
 }
 
@@ -59,7 +58,7 @@ export const defaultCurrentUser = {
 	id: uuid(),
 	username: "me",
 	name: "myself",
-	profile_image: "https://instagram.com/static/images/anonymousUser.jpg/23e7b3b2a737.jpg",
+	profile_image: "https://i.pravatar.cc/300",
 	website: "https://react12.io",
 	email: "me@gmail.com",
 	bio: "This is my bio",
